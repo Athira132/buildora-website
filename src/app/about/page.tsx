@@ -126,23 +126,6 @@ export default function AboutPage() {
             <p className="text-base sm:text-lg text-gray-800 leading-relaxed font-normal">
               BUILDORA delivers reliable building solutions covering construction, renovation, planning and design, interiors, and quality construction. With specialized expertise in ACP Structural Glazing, we build residential and commercial spaces engineered with precision, safety, and long-term durability in Thrissur, Kerala.
             </p>
-            <div className="mt-6 pt-6 border-t border-gray-200 flex flex-wrap items-center gap-6 text-xs sm:text-sm text-gray-600">
-              <span className="font-semibold text-gray-900">
-                Brand: <span className="font-normal text-gray-700">{siteConfig.name}</span>
-              </span>
-              <span className="text-gray-300">•</span>
-              <span className="font-semibold text-gray-900">
-                Sub-Heading: <span className="font-normal text-gray-700">{siteConfig.subHeading}</span>
-              </span>
-              <span className="text-gray-300">•</span>
-              <span className="font-semibold text-gray-900">
-                Specialization: <span className="font-normal text-gray-700">{siteConfig.specialization}</span>
-              </span>
-              <span className="text-gray-300">•</span>
-              <span className="font-semibold text-gray-900">
-                Tagline: <span className="font-normal text-gray-700">{siteConfig.tagline}</span>
-              </span>
-            </div>
             <div className="mt-6">
               <Link
                 href="/services"
