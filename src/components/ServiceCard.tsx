@@ -13,7 +13,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, priority = fa
       <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
         <Image
           src={service.image}
-          alt={service.title}
+          alt={service.alt || service.title}
           fill
           priority={priority}
           loading={priority ? "eager" : "lazy"}

@@ -13,7 +13,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({ item, onClick, priorit
   return (
     <div
       onClick={onClick}
-      className="group relative aspect-[4/3] w-full bg-white border border-gray-200 hover:border-gray-400 rounded-sm sm:rounded-md overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-600 transition-all duration-200"
+      className="group relative aspect-[4/3] w-full bg-white border border-gray-200 hover:border-gray-400 rounded-lg overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-600 transition-all duration-200"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
@@ -26,7 +26,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({ item, onClick, priorit
     >
       <Image
         src={item.image}
-        alt={item.title}
+        alt={item.alt || item.title}
         fill
         priority={priority}
         loading={priority ? "eager" : "lazy"}

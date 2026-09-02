@@ -6,6 +6,7 @@ interface PageHeroProps {
   title: string;
   subtitle?: string;
   image: string;
+  imageAlt?: string;
   shortDescription?: string;
   objectPosition?: string;
 }
@@ -15,6 +16,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
   title,
   subtitle,
   image,
+  imageAlt,
   shortDescription,
   objectPosition = "center",
 }) => {
@@ -25,7 +27,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
         {/* Full coverage Image (100% width & height, object-fit: cover) */}
         <Image
           src={image}
-          alt={title}
+          alt={imageAlt || title}
           fill
           priority
           sizes="(max-width: 1280px) 100vw, 1280px"

@@ -6,21 +6,31 @@ import { ContactForm } from "@/components/ContactForm";
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Contact Us | BUILDORA Building Solutions",
+  title: "Contact Us | Interior Works & Glazing in Thrissur",
   description:
-    "Get in touch with BUILDORA for quotes on ACP structural glazing, building solutions, fabrication and renovation in Thrissur, Kerala.",
+    "Get in touch with BUILDORA for consultations on interior works, home interior design, modular kitchens, false ceilings, and structural glazing in Thrissur.",
+  alternates: {
+    canonical: `${siteConfig.url}/contact`,
+  },
+  openGraph: {
+    title: "Contact BUILDORA | Interior Works & Glazing in Thrissur",
+    description:
+      "Get in touch with BUILDORA for consultations on interior works, home interior design, modular kitchens, false ceilings, and structural glazing in Thrissur.",
+    url: `${siteConfig.url}/contact`,
+  },
 };
 
 export default function ContactPage() {
   return (
     <div className="flex flex-col">
-      {/* Consistent Hero Banner with 1px Subtle Border */}
+      {/* Page Hero with Single H1 */}
       <PageHero
         badge="Reach Out"
-        title="GET IN TOUCH"
-        subtitle="Let's Discuss Your Project Requirements"
+        title="CONTACT BUILDORA"
+        subtitle="Discuss Your Interior Works & Construction Needs"
         image="/images/heroes/contact-hero.jpg"
-        shortDescription="Have a project in mind or need an enquiry for ACP, structural glazing, fabrication, or construction? Contact us today."
+        imageAlt="BUILDORA commercial office entrance and customer service desk in Thrissur"
+        shortDescription="Have a project in mind or need an enquiry for interior works, ACP, structural glazing, fabrication, or construction? Contact our team in Thrissur today."
       />
 
       <div className="py-8 sm:py-12">
@@ -128,10 +138,10 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Contact Form Column */}
+            {/* Contact Form Column with Semantic H2 */}
             <div className="lg:col-span-7 bg-white border border-gray-200 p-6 sm:p-8 rounded-sm">
               <h2 className="text-xl font-bold text-gray-900 mb-2">
-                Send an Enquiry
+                Send an Enquiry for Interior Works
               </h2>
               <p className="text-xs sm:text-sm text-gray-600 mb-6">
                 Fill out the form below with your project requirements and our team will get in touch with you.
