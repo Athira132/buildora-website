@@ -17,7 +17,9 @@ import { CTASection } from "@/components/CTASection";
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Building Solutions & Construction Services | BUILDORA",
+  title: {
+    absolute: "Building Solutions & Construction Services | BUILDORA",
+  },
   description:
     "BUILDORA delivers reliable building solutions covering construction, renovation, planning and design, interiors, and quality construction in Thrissur, Kerala.",
   alternates: {
