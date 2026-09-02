@@ -36,12 +36,12 @@ const FacebookIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" 
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 border-t border-gray-800 pt-16 pb-12">
+    <footer className="bg-[#F3F4F6] text-gray-700 border-t border-gray-200 pt-16 pb-12">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-gray-800">
-          {/* Col 1: Brand & Slogan - Logo directly on footer background without any container/white box */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-gray-200">
+          {/* Col 1: Brand & Slogan - Logo directly on light background without any container */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block focus:outline-none focus:ring-1 focus:ring-amber-500 rounded-sm">
+            <Link href="/" className="inline-block focus:outline-none focus:ring-2 focus:ring-amber-600 rounded-sm">
               <div className="relative h-12 w-48 sm:w-52">
                 <Image
                   src="/images/logo.png"
@@ -53,13 +53,13 @@ export const Footer: React.FC = () => {
               </div>
             </Link>
             <div className="space-y-1">
-              <p className="text-xs uppercase tracking-widest font-semibold text-amber-400">
+              <p className="text-xs uppercase tracking-widest font-bold text-amber-700">
                 {siteConfig.specialization}
               </p>
-              <p className="text-sm font-medium text-gray-200">
+              <p className="text-sm font-semibold text-gray-900">
                 {siteConfig.tagline}
               </p>
-              <p className="text-xs text-gray-400 italic pt-1">
+              <p className="text-xs text-gray-600 italic pt-1">
                 &ldquo;{siteConfig.slogan}&rdquo;
               </p>
             </div>
@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Quick Links */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-4">
               Quick Links
             </h3>
             <ul className="space-y-2.5 text-sm">
@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors inline-flex items-center gap-1"
+                    className="text-gray-600 hover:text-gray-900 transition-colors inline-flex items-center gap-1"
                   >
                     <span>{link.label}</span>
                   </Link>
@@ -86,41 +86,41 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Contact Info */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-4">
               Contact
             </h3>
-            <ul className="space-y-3 text-sm text-gray-400">
+            <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <a
                   href={siteConfig.contact.phoneHref}
-                  className="hover:text-white transition-colors inline-flex items-start gap-2.5"
+                  className="hover:text-gray-900 transition-colors inline-flex items-start gap-2.5"
                 >
-                  <Phone className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                  <span>{siteConfig.contact.phoneDisplay}</span>
+                  <Phone className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                  <span className="text-gray-800 font-medium">{siteConfig.contact.phoneDisplay}</span>
                 </a>
               </li>
               <li>
                 <a
                   href={siteConfig.contact.emailHref}
-                  className="hover:text-white transition-colors inline-flex items-start gap-2.5 break-all"
+                  className="hover:text-gray-900 transition-colors inline-flex items-start gap-2.5 break-all"
                 >
-                  <Mail className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                  <span>{siteConfig.contact.email}</span>
+                  <Mail className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                  <span className="text-gray-800">{siteConfig.contact.email}</span>
                 </a>
               </li>
               <li className="inline-flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <span>{siteConfig.contact.displayAddress}</span>
+                <MapPin className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                <span className="text-gray-600 leading-relaxed">{siteConfig.contact.displayAddress}</span>
               </li>
             </ul>
           </div>
 
           {/* Col 4: Social Links & Visiting Card */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-4">
               Connect With Us
             </h3>
-            <p className="text-xs text-gray-400 mb-4">
+            <p className="text-xs text-gray-600 mb-4">
               Follow our project updates and access our official digital visiting card.
             </p>
             <div className="flex flex-wrap gap-2.5">
@@ -129,7 +129,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="BUILDORA Instagram page"
-                className="w-9 h-9 rounded-sm bg-gray-800 hover:bg-amber-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-sm bg-white hover:bg-gray-900 border border-gray-300 hover:border-gray-900 text-gray-700 hover:text-white flex items-center justify-center transition-colors"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
@@ -138,7 +138,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="BUILDORA Facebook page"
-                className="w-9 h-9 rounded-sm bg-gray-800 hover:bg-amber-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-sm bg-white hover:bg-gray-900 border border-gray-300 hover:border-gray-900 text-gray-700 hover:text-white flex items-center justify-center transition-colors"
               >
                 <FacebookIcon className="w-4 h-4" />
               </a>
@@ -147,9 +147,9 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Official Digital Visiting Card"
-                className="inline-flex items-center gap-1.5 px-3 h-9 rounded-sm bg-gray-800 hover:bg-amber-600 text-gray-300 hover:text-white text-xs font-semibold transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 h-9 rounded-sm bg-gray-900 hover:bg-black text-white text-xs font-semibold transition-colors shadow-sm"
               >
-                <CreditCard className="w-3.5 h-3.5" />
+                <CreditCard className="w-3.5 h-3.5 text-amber-400" />
                 <span>Visiting Card</span>
                 <ArrowUpRight className="w-3 h-3" />
               </a>
@@ -158,7 +158,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Copyright Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-600 gap-4">
           <p>© 2026 BUILDORA - Building Solutions. All Rights Reserved.</p>
           <p className="text-gray-500">
             Thrissur, Kerala • ACP & Structural Glazing Specialists
