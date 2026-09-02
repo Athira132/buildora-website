@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { Maximize2 } from "lucide-react";
 import { GalleryItem } from "@/data/gallery";
 
 interface GalleryCardProps {
@@ -22,7 +21,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({ item, onClick, priorit
           onClick();
         }
       }}
-      aria-label={`View ${item.title} image`}
+      aria-label={`View gallery project ${item.id}`}
     >
       <Image
         src={item.image}
@@ -33,17 +32,6 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({ item, onClick, priorit
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-4">
-        <span className="text-[10px] font-semibold tracking-widest uppercase text-amber-300">
-          {item.category}
-        </span>
-        <p className="text-xs sm:text-sm font-semibold text-white mt-0.5 line-clamp-2">
-          {item.title}
-        </p>
-        <div className="absolute top-3 right-3 w-8 h-8 rounded-sm bg-black/60 text-white flex items-center justify-center">
-          <Maximize2 className="w-4 h-4" />
-        </div>
-      </div>
     </div>
   );
 };

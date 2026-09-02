@@ -86,26 +86,20 @@ export const Lightbox: React.FC<LightboxProps> = ({
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      {/* Content wrapper */}
+      {/* Content wrapper - Only the clean image with subtle border */}
       <div
         className="relative max-w-4xl w-full max-h-[85vh] flex flex-col items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] max-h-[70vh] bg-black/50 rounded-sm overflow-hidden">
+        <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] max-h-[80vh] bg-black/50 rounded-lg border border-neutral-700/60 overflow-hidden">
           <Image
             src={currentItem.image}
-            alt={currentItem.title}
+            alt={currentItem.alt || currentItem.title}
             fill
             priority
             className="object-contain"
             sizes="(max-width: 1024px) 100vw, 1000px"
           />
-        </div>
-        <div className="mt-4 text-center text-white space-y-1">
-          <span className="text-xs font-semibold uppercase tracking-widest text-amber-400">
-            {currentItem.category} ({currentIndex + 1} / {items.length})
-          </span>
-          <p className="text-sm sm:text-base font-medium">{currentItem.title}</p>
         </div>
       </div>
     </div>

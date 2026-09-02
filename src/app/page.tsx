@@ -167,6 +167,7 @@ export default function HomePage() {
                 key={item.id}
                 href="/gallery"
                 className="group relative aspect-[4/3] w-full bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-gray-400 transition-colors"
+                aria-label={`View gallery project ${item.id}`}
               >
                 <Image
                   src={item.image}
@@ -176,14 +177,6 @@ export default function HomePage() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-end p-4">
-                  <span className="text-[10px] font-semibold tracking-widest uppercase text-amber-300">
-                    {item.category}
-                  </span>
-                  <p className="text-xs sm:text-sm font-semibold text-white mt-0.5">
-                    {item.title}
-                  </p>
-                </div>
               </Link>
             ))}
           </div>
