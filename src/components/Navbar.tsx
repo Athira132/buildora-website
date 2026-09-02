@@ -14,7 +14,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -32,27 +32,27 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
-          {/* Brand Logo */}
+        <div className="flex items-center justify-between h-20 sm:h-24">
+          {/* Brand Logo - Enlarged & Prominent */}
           <Link
             href="/"
-            className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 rounded-sm"
+            className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 rounded-sm py-1"
             aria-label="BUILDORA Home"
           >
-            <div className="relative h-12 w-36 sm:w-44">
+            <div className="relative h-12 sm:h-16 w-40 sm:w-56">
               <Image
-                src="/images/logo.jpg"
+                src="/images/logo.png"
                 alt="BUILDORA - Building Solutions"
                 fill
                 priority
                 className="object-contain object-left"
-                sizes="(max-width: 640px) 150px, 180px"
+                sizes="(max-width: 640px) 160px, 224px"
               />
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Main Navigation">
+          <nav className="hidden md:flex items-center gap-2 lg:gap-3" aria-label="Main Navigation">
             {siteConfig.navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -61,7 +61,7 @@ export const Navbar: React.FC = () => {
                   href={link.href}
                   className={`px-3 py-2 text-sm font-medium transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 ${
                     isActive
-                      ? "text-gray-900 font-semibold border-b-2 border-amber-600 rounded-none pb-1.5"
+                      ? "text-gray-900 font-bold border-b-2 border-amber-600 rounded-none pb-1.5"
                       : "text-gray-600 hover:text-gray-900"
                   }`}
                 >
@@ -71,33 +71,47 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Desktop CTA Button */}
+          {/* Desktop Action Buttons: Compact Phone Icon + ENQUIRY */}
           <div className="hidden md:flex items-center gap-3">
+            {/* Compact Phone Icon Button (No phone text) */}
             <a
               href={siteConfig.contact.phoneHref}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-700 hover:text-gray-900 px-3 py-2 rounded-sm border border-gray-200 hover:border-gray-300 transition-colors"
+              aria-label="Call BUILDORA"
+              className="w-10 h-10 flex items-center justify-center rounded-sm border border-gray-200 hover:border-gray-400 bg-white hover:bg-gray-50 text-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-600"
+              title="Call BUILDORA"
             >
-              <Phone className="w-3.5 h-3.5 text-amber-600" />
-              <span>{siteConfig.contact.phoneDisplay}</span>
+              <Phone className="w-4 h-4 text-amber-700" />
             </a>
+
+            {/* ENQUIRY Primary CTA Button */}
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center text-xs font-semibold uppercase tracking-wider bg-gray-900 text-white hover:bg-black px-4 py-2.5 rounded-sm transition-colors shadow-none"
+              className="inline-flex items-center justify-center text-xs font-bold uppercase tracking-wider bg-gray-900 hover:bg-black text-white px-5 py-2.5 rounded-sm transition-colors"
             >
-              GET A QUOTE
+              ENQUIRY
             </Link>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <button
-            type="button"
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-600 rounded-sm"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Actions: Phone Button + Hamburger */}
+          <div className="flex items-center gap-2 md:hidden">
+            <a
+              href={siteConfig.contact.phoneHref}
+              aria-label="Call BUILDORA"
+              className="w-10 h-10 flex items-center justify-center rounded-sm border border-gray-200 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-600"
+            >
+              <Phone className="w-4 h-4 text-amber-700" />
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 text-gray-800 hover:text-black focus:outline-none focus:ring-2 focus:ring-amber-600 rounded-sm"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -113,7 +127,7 @@ export const Navbar: React.FC = () => {
                   href={link.href}
                   className={`px-3 py-2.5 text-base font-medium rounded-sm ${
                     isActive
-                      ? "bg-gray-100 text-gray-900 font-semibold border-l-4 border-amber-600 pl-3"
+                      ? "bg-gray-100 text-gray-900 font-bold border-l-4 border-amber-600 pl-3"
                       : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                   }`}
                 >
@@ -124,18 +138,11 @@ export const Navbar: React.FC = () => {
           </nav>
 
           <div className="pt-4 border-t border-gray-200 space-y-3">
-            <a
-              href={siteConfig.contact.phoneHref}
-              className="flex items-center justify-center gap-2 text-sm font-semibold text-gray-800 py-2.5 px-4 rounded-sm border border-gray-200"
-            >
-              <Phone className="w-4 h-4 text-amber-600" />
-              <span>{siteConfig.contact.phoneDisplay}</span>
-            </a>
             <Link
               href="/contact"
-              className="flex items-center justify-center gap-2 w-full text-center text-sm font-semibold uppercase tracking-wider bg-gray-900 text-white py-3 px-4 rounded-sm hover:bg-black"
+              className="flex items-center justify-center gap-2 w-full text-center text-sm font-bold uppercase tracking-wider bg-gray-900 text-white py-3 px-4 rounded-sm hover:bg-black"
             >
-              <span>GET A QUOTE</span>
+              <span>ENQUIRY</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

@@ -13,7 +13,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({ item, onClick, priorit
   return (
     <div
       onClick={onClick}
-      className="group relative aspect-[4/3] w-full bg-gray-100 border border-gray-200 rounded-sm overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-600"
+      className="group relative aspect-[4/3] w-full bg-white border border-gray-200 hover:border-gray-400 rounded-sm sm:rounded-md overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-600 transition-all duration-200"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {

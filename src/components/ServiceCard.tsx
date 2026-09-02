@@ -9,7 +9,7 @@ interface ServiceCardProps {
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({ service, priority = false }) => {
   return (
-    <article className="group bg-white border border-gray-200 rounded-sm overflow-hidden flex flex-col h-full hover:border-gray-400 transition-all duration-200">
+    <article className="group bg-white border border-gray-200 hover:border-gray-400 rounded-sm sm:rounded-md overflow-hidden flex flex-col h-full transition-all duration-200 shadow-none">
       <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
         <Image
           src={service.image}

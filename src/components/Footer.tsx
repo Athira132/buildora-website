@@ -41,10 +41,10 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-gray-800">
           {/* Col 1: Brand & Slogan */}
           <div className="space-y-4">
-            <div className="bg-white p-2.5 rounded-sm inline-block max-w-[200px]">
+            <div className="bg-white p-2.5 rounded-sm inline-block max-w-[220px]">
               <div className="relative h-10 w-44">
                 <Image
-                  src="/images/logo.jpg"
+                  src="/images/logo.png"
                   alt="BUILDORA"
                   fill
                   className="object-contain object-left"

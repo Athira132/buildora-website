@@ -1,10 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
+import { PageHero } from "@/components/PageHero";
 import { ServiceCard } from "@/components/ServiceCard";
-import { SectionHeading } from "@/components/SectionHeading";
 import { CTASection } from "@/components/CTASection";
 import { servicesData } from "@/data/services";
-import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
   title: "Services | BUILDORA Building Solutions & Glazing",
@@ -14,26 +13,24 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="py-12 sm:py-16">
-      <div className="container-custom">
-        {/* Page Header */}
-        <div className="max-w-3xl mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-sm">
-            All Building Solutions
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-3">
-            OUR SERVICES
-          </h1>
-          <p className="text-sm sm:text-base text-gray-600 mt-3 leading-relaxed">
-            BUILDORA delivers 16 specialized building, glazing, fabrication, and finishing services with guaranteed structural integrity and professional execution.
-          </p>
-        </div>
+    <div className="flex flex-col">
+      {/* Consistent Hero Banner with 1px Subtle Border */}
+      <PageHero
+        badge="All Building Solutions"
+        title="OUR SERVICES"
+        subtitle="16 Specialized Building, Glazing & Fabrication Solutions"
+        image="/images/heroes/services-hero.jpg"
+        shortDescription="Delivering end-to-end building excellence with certified structural integrity, precision craftsmanship, and professional execution."
+      />
 
-        {/* 16 Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
-          {servicesData.map((service, index) => (
-            <ServiceCard key={service.id} service={service} priority={index < 4} />
-          ))}
+      <div className="py-8 sm:py-12">
+        <div className="container-custom">
+          {/* 16 Services Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+            {servicesData.map((service, index) => (
+              <ServiceCard key={service.id} service={service} priority={index < 4} />
+            ))}
+          </div>
         </div>
       </div>
 
