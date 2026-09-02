@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { PageHero } from "@/components/PageHero";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CTASection } from "@/components/CTASection";
 import { siteConfig } from "@/data/siteConfig";
@@ -13,67 +14,39 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col">
-      {/* 1. HOME HERO - Single clear H1 targeting 'Interior Works & Design Solutions' */}
-      <section className="container-custom pt-4 sm:pt-6 pb-6" aria-label="Hero Introduction">
-        <div className="relative w-full h-[65vh] sm:h-[68vh] lg:h-[72vh] min-h-[480px] max-h-[700px] flex items-center rounded-lg sm:rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-          {/* Full coverage Hero Image with descriptive alt text */}
-          <Image
-            src="/images/hero-banner.jpg"
-            alt="BUILDORA interior works, ACP structural glazing and building solutions in Thrissur"
-            fill
-            priority
-            sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover object-center w-full h-full"
-          />
-
-          {/* Clean High-Contrast Dark Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/35 pointer-events-none" />
-
-          {/* Large Hero Typography with Single Semantic H1 */}
-          <div className="relative z-10 p-6 sm:p-10 md:p-14 lg:p-16 max-w-3xl text-white space-y-4 sm:space-y-5">
-            <div className="space-y-2 sm:space-y-2.5">
-              <span className="inline-block text-xs sm:text-sm font-bold tracking-widest uppercase text-amber-400 bg-amber-950/80 border border-amber-800/80 px-3.5 py-1.5 rounded-sm shadow-sm">
-                {siteConfig.specialization}
-              </span>
-
-              {/* Single Clear Primary H1 targeting Interior Works & Design Solutions */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none text-white drop-shadow-sm">
-                BUILDORA
-                <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-gray-100 mt-2.5 tracking-tight font-sans">
-                  Interior Works &amp; Design Solutions
-                </span>
-              </h1>
-
-              {/* Tagline */}
-              <p className="text-base sm:text-lg md:text-xl font-medium text-amber-400/90 pt-0.5">
-                {siteConfig.tagline}
-              </p>
-            </div>
-
-            {/* Short Definition */}
-            <p className="text-sm sm:text-base text-gray-300 max-w-xl leading-relaxed font-normal">
-              Professional interior works, home interior design, modular kitchens, false ceilings, glass works, and custom fabrication built with quality and precision.
-            </p>
-
-            {/* Action Buttons */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-500 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-7 py-3.5 rounded-sm transition-colors shadow-sm"
-              >
-                <span>ENQUIRY</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold uppercase tracking-wider px-7 py-3.5 rounded-sm border border-white/25 transition-colors"
-              >
-                <span>OUR SERVICES</span>
-              </Link>
-            </div>
-          </div>
+      {/* 1. HOME HERO - Standardized Full-Width PageHero */}
+      <PageHero
+        isHome
+        badge={siteConfig.specialization}
+        title={
+          <>
+            BUILDORA
+            <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-gray-100 mt-2.5 tracking-tight font-sans">
+              Interior Works &amp; Design Solutions
+            </span>
+          </>
+        }
+        tagline={siteConfig.tagline}
+        shortDescription="Professional interior works, home interior design, modular kitchens, false ceilings, glass works, and custom fabrication built with quality and precision."
+        image="/images/hero-banner.jpg"
+        imageAlt="BUILDORA interior works, ACP structural glazing and building solutions in Thrissur"
+      >
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-500 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-7 py-3.5 rounded-sm transition-colors shadow-sm"
+          >
+            <span>ENQUIRY</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link
+            href="/services"
+            className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold uppercase tracking-wider px-7 py-3.5 rounded-sm border border-white/25 transition-colors"
+          >
+            <span>OUR SERVICES</span>
+          </Link>
         </div>
-      </section>
+      </PageHero>
 
       {/* 2. SHORT INTRODUCTION - H2: Interior Design Solutions */}
       <section className="py-14 sm:py-18 bg-white border-b border-gray-200">

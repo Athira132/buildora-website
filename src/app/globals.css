@@ -49,3 +49,15 @@
     padding-right: 2rem;
   }
 }
+
+/* Standardized Full-Width Hero Banner Sizing & Alignment */
+.hero-banner-frame {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+
