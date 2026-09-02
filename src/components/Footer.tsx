@@ -39,19 +39,19 @@ export const Footer: React.FC = () => {
     <footer className="bg-gray-900 text-gray-300 border-t border-gray-800 pt-16 pb-12">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-gray-800">
-          {/* Col 1: Brand & Slogan */}
+          {/* Col 1: Brand & Slogan - Logo directly on footer background without any container/white box */}
           <div className="space-y-4">
-            <div className="bg-white p-2.5 rounded-sm inline-block max-w-[220px]">
-              <div className="relative h-10 w-44">
+            <Link href="/" className="inline-block focus:outline-none focus:ring-1 focus:ring-amber-500 rounded-sm">
+              <div className="relative h-12 w-48 sm:w-52">
                 <Image
                   src="/images/logo.png"
                   alt="BUILDORA"
                   fill
                   className="object-contain object-left"
-                  sizes="180px"
+                  sizes="210px"
                 />
               </div>
-            </div>
+            </Link>
             <div className="space-y-1">
               <p className="text-xs uppercase tracking-widest font-semibold text-amber-400">
                 {siteConfig.specialization}

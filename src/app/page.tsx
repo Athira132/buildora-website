@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Phone } from "lucide-react";
-import { SectionHeading } from "@/components/SectionHeading";
+import { ArrowRight } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CTASection } from "@/components/CTASection";
 import { siteConfig } from "@/data/siteConfig";
@@ -14,31 +13,31 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col">
-      {/* 1. HERO SECTION WITH VISIBLE SUBTLE BORDER & DOMINANT TYPOGRAPHY */}
+      {/* 1. HOME HERO - 70-75vh desktop / 60-70vh mobile, 100% full image cover, 1px border, large typography */}
       <section className="container-custom pt-4 sm:pt-6 pb-6">
-        <div className="relative min-h-[75vh] lg:min-h-[85vh] flex items-center bg-gray-950 rounded-lg sm:rounded-xl overflow-hidden border border-gray-200 shadow-sm">
-          {/* Background Image with Dark Overlay */}
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/images/hero-banner.jpg"
-              alt="BUILDORA Modern ACP & Structural Glazing Construction"
-              fill
-              priority
-              className="object-cover object-center opacity-40"
-              sizes="(max-width: 1280px) 100vw, 1280px"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-950/95 via-gray-950/75 to-transparent" />
-          </div>
+        <div className="relative w-full h-[65vh] sm:h-[68vh] lg:h-[72vh] min-h-[480px] max-h-[700px] flex items-center rounded-lg sm:rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+          {/* Full coverage Hero Image */}
+          <Image
+            src="/images/hero-banner.jpg"
+            alt="BUILDORA Modern ACP & Structural Glazing Construction"
+            fill
+            priority
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            className="object-cover object-center w-full h-full"
+          />
 
-          {/* Hero Content - Dominant Hierarchy & Left Aligned */}
-          <div className="relative z-10 p-6 sm:p-10 md:p-14 lg:p-16 max-w-3xl text-white space-y-5 sm:space-y-6">
-            <div className="space-y-2 sm:space-y-3">
-              <span className="inline-block text-xs sm:text-sm font-bold tracking-widest uppercase text-amber-400 bg-amber-950/70 border border-amber-800/80 px-3.5 py-1.5 rounded-sm">
+          {/* Clean High-Contrast Dark Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/35 pointer-events-none" />
+
+          {/* Large Hero Typography */}
+          <div className="relative z-10 p-6 sm:p-10 md:p-14 lg:p-16 max-w-3xl text-white space-y-4 sm:space-y-5">
+            <div className="space-y-2 sm:space-y-2.5">
+              <span className="inline-block text-xs sm:text-sm font-bold tracking-widest uppercase text-amber-400 bg-amber-950/80 border border-amber-800/80 px-3.5 py-1.5 rounded-sm shadow-sm">
                 {siteConfig.specialization}
               </span>
 
-              {/* Dominant Brand Title */}
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-none text-white">
+              {/* Dominant Brand Heading */}
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-none text-white drop-shadow-sm">
                 {siteConfig.name}
               </h1>
 
@@ -48,7 +47,7 @@ export default function HomePage() {
               </p>
 
               {/* Tagline */}
-              <p className="text-base sm:text-lg md:text-xl font-medium text-amber-400/90 pt-1">
+              <p className="text-base sm:text-lg md:text-xl font-medium text-amber-400/90 pt-0.5">
                 {siteConfig.tagline}
               </p>
             </div>
@@ -58,18 +57,18 @@ export default function HomePage() {
               Professional construction, fabrication, ACP and glazing solutions built with quality and precision.
             </p>
 
-            {/* Clear Buttons: ENQUIRY & OUR SERVICES */}
-            <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            {/* Buttons: ENQUIRY & OUR SERVICES */}
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-7 py-3.5 rounded-sm transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-7 py-3.5 rounded-sm transition-colors shadow-sm"
               >
                 <span>ENQUIRY</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold uppercase tracking-wider px-7 py-3.5 rounded-sm border border-white/20 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold uppercase tracking-wider px-7 py-3.5 rounded-sm border border-white/25 transition-colors"
               >
                 <span>OUR SERVICES</span>
               </Link>
@@ -104,7 +103,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. KEY SERVICES */}
+      {/* 3. KEY SERVICES (Spotlight on 6 major services) */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
@@ -120,7 +119,7 @@ export default function HomePage() {
               href="/services"
               className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-700 hover:text-amber-800"
             >
-              <span>VIEW ALL SERVICES</span>
+              <span>VIEW ALL 18 SERVICES</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -134,16 +133,16 @@ export default function HomePage() {
           <div className="mt-12 text-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 bg-gray-900 hover:bg-black text-white text-xs font-bold uppercase tracking-wider px-7 py-3.5 rounded-sm transition-colors"
+              className="inline-flex items-center gap-2 bg-gray-900 hover:bg-black text-white text-xs font-bold uppercase tracking-wider px-8 py-3.5 rounded-sm transition-colors shadow-sm"
             >
-              <span>VIEW ALL SERVICES</span>
+              <span>VIEW ALL 18 SERVICES</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 4. GALLERY PREVIEW WITH SUBTLE CARD BORDERS */}
+      {/* 4. GALLERY PREVIEW */}
       <section className="py-16 sm:py-20 bg-gray-50 border-t border-b border-gray-200">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
@@ -169,7 +168,7 @@ export default function HomePage() {
               <Link
                 key={item.id}
                 href="/gallery"
-                className="group relative aspect-[4/3] w-full bg-white border border-gray-200 rounded-sm sm:rounded-md overflow-hidden hover:border-gray-400 transition-colors"
+                className="group relative aspect-[4/3] w-full bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-gray-400 transition-colors"
               >
                 <Image
                   src={item.image}

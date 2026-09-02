@@ -9,7 +9,7 @@ interface ServiceCardProps {
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({ service, priority = false }) => {
   return (
-    <article className="group bg-white border border-gray-200 hover:border-gray-400 rounded-sm sm:rounded-md overflow-hidden flex flex-col h-full transition-all duration-200 shadow-none">
+    <article className="group bg-white border border-gray-200 hover:border-gray-400 rounded-lg overflow-hidden flex flex-col h-full transition-all duration-200 shadow-none">
       <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
         <Image
           src={service.image}
@@ -19,8 +19,9 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, priority = fa
           loading={priority ? "eager" : "lazy"}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
+          style={{ objectPosition: service.objectPosition || "center" }}
         />
-        <span className="absolute top-3 left-3 bg-gray-900/80 backdrop-blur-sm text-white text-[11px] font-medium tracking-wider uppercase px-2.5 py-1 rounded-sm">
+        <span className="absolute top-3 left-3 bg-gray-900/85 backdrop-blur-sm text-white text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-sm shadow-sm">
           {service.category}
         </span>
       </div>
